@@ -22,7 +22,7 @@ def create_config_loader():
     return ConfigLoader(
         config_search_path=create_search_path(
             ["hydra/test_utils/configs/completion_test"], abspath=True
-        ),
+        )
     )
 
 
@@ -47,7 +47,7 @@ base_completion_list = [
         ("dict.", 3, ["dict.key1=", "dict.key2=", "dict.key3="]),
         ("dict.key", 2, ["dict.key1=", "dict.key2=", "dict.key3="]),
         ("dict.key1=", 2, ["dict.key1=val1"]),
-        ("dict.key3=", 2, []),  # no matches because value is ??? (missing)
+        ("dict.key3=", 2, ["dict.key3="]),  # no value because dict.key3 is ???
         ("list", 2, ["list.", "list_prefix="]),
         ("list.", 2, ["list.0=", "list.1=", "list.2="]),
         (
